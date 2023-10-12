@@ -17,8 +17,6 @@ class PiCamera():
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.img_size[1])
         self.rotate_180 = rotate_180
 
-
-
     def run(self):       
         # read frame
         ret, image = self.cap.read()
@@ -27,6 +25,28 @@ class PiCamera():
         if not ret:
             raise RuntimeError("failed to read frame")
         return image  # in BGR
+
+# to not rotate the camera feed 
+
+#class PiCamera():
+#    def __init__(self, src=None, img_size=(640, 480), fps=36):
+#        self.img_size = img_size
+#        self.fps = fps
+#        if src is None:
+#            src = 0
+#        self.cap = cv2.VideoCapture(src)
+        
+#        self.cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+#        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, self.img_size[0])
+#        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, self.img_size[1])
+
+#    def run(self):       
+#        # read frame
+#        ret, image = self.cap.read()
+#        if not ret:
+#            raise RuntimeError("Failed to read frame")
+#        return image  # in BGR
+
 
 
 
